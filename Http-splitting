@@ -1,0 +1,9 @@
+In here i will focus mainly on how http response splitting works and how it can be used to carry out some other technique
+
+1. First lets talk about what this is.
+- So http is a protocol used to help clients and server interact with each other. The clients send a request and the server will response with a result, this result normally would be known from the server or else the server would response with the 404 code. Since there is a chain between the client and server hackers will always find a way to make use of it
+- http response splitting is when the client send 1 request, along with more than 1 responses set by the client to the server in which one of the request is a legit request while others are malicious.
+
+2. So how does it work?
+- Let's say when sending 1 request with 2 repsonse to the server, the first requset is a legit one and lead to some branches of the server and the second one contains some malicious cod.
+- But if this code doesnt lead 
