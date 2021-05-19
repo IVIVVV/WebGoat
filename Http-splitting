@@ -4,10 +4,24 @@ In here i will focus mainly on how http response splitting works and how it can 
 - So http is a protocol used to help clients and server interact with each other. The clients send a request and the server will response with a result, 
 this result normaly would be known from the server or else the server would response with the 404 code. Since there is a chain between the client and 
 server, hackers will always find a way to make use of it
-- http response splitting is when the client send 1 request, along with more than 1 responses set by the client to the server in which one of the request 
+- Http response splitting is when the client send 1 request, along with more than 1 responses set by the client to the server in which one of the request 
 is a legit request while others are malicious.
+- Http response splitting can be used to carry out attacks such as web cache poisoning, cross user defacement, hijacking 
+pages with sensitive user information and an old favorite, cross-site scripting
+
+*NOTE:
++ Cross user defacement enables the attacker to forge a page that is sent to the victim. It 
+can be looked at as a very localized and temporary kind of defacement, which affects 
+one user at a time. 
++ Web cache poisoning elevates that defacement into a permanent effect on a more global scope by forging a cached page in a cache server shared 
+among a multitude of site users. 
++ Hijacking pages with sensitive user information lets the attacker gain access to user specific information provided by the server such as 
+health records or financial data. 
++ Cross-site scripting enables the attacker to steal other client’s credentials that are then used in conjunction with the vulnerable site
 
 2. So how does it work?
 - Let's say when sending 1 request with 2 repsonse to the server, the first requset is a legit one and lead to some branches of the server and the second
 one contains some malicious content.
+- The essence of HTTP Response Splitting is the attacker’s ability to send a single HTTP request that forces the web server to form an 
+output stream, which is then interpreted by the target as two HTTP responses instead of one response
 - But if this second response doesnt have any request to map to it would just be hanging there.
