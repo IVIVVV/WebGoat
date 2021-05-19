@@ -1,4 +1,4 @@
-In here i will focus mainly on how http response splitting works and how it can be used to carry out some other technique
+In here i will focus mainly on how http response splitting works and how it can be used to carry out some other attacks
 
 1. First lets talk about what this is.
 - So http is a protocol used to help clients and server interact with each other. The clients send a request and the server will response with a result, 
@@ -25,3 +25,13 @@ one contains some malicious content.
 - The essence of HTTP Response Splitting is the attacker’s ability to send a single HTTP request that forces the web server to form an 
 output stream, which is then interpreted by the target as two HTTP responses instead of one response
 - But if this second response doesnt have any request to map to it would just be hanging there.
+- In order for this to work, the attacker must be behind a proxy server then pass their requests to the server. But that's not all, not only the attacker needs 
+to be behind a proxy server but also the target, behind the same proxy server
+- This is how the attack goes:
++ the Attacker sends a request which contains a value and 2 responses, separated by %0d%0a (aka CRLF) 
++ The request is sent to the server DNS but it passes through the intermediate proxy server. 
+Now on the proxy server, the first request is mapped to the first response. The second response hangs very briefly as there is no matching request
++ Immediately after sending the first request the attacker sends a new request(2nd request) to the site (and hence through the proxy server as well)
++ The moment the proxy sees the request for branches.html it maps it to the second response
+
+=> So a future request for the server branch will NOT display that server's branch but the malicious page instead. For everyone. Not just the attacker!
