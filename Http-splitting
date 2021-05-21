@@ -10,6 +10,7 @@ is a legit request while others are malicious.
 pages with sensitive user information and an old favorite, cross-site scripting
 
 *NOTE:
+**** The HTTP response splitting vulnerability is not the attack, it is simply the path that makes the attack possible
 + Cross user defacement enables the attacker to forge a page that is sent to the victim. It 
 can be looked at as a very localized and temporary kind of defacement, which affects 
 one user at a time. 
