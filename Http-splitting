@@ -41,6 +41,16 @@ Now on the proxy server, the first request is mapped to the first response. The 
 - HTTP Response Splitting attacks take place where the server script embeds user data in HTTP response headers.
 + This typically happens when the script embeds user data in the redirection URL of a redirection response (HTTP status code 3xx), or when the 
 script embeds user data in a cookie value or name when the response sets a cookie. 
+- Once confirm the server is vulnerable just send a scrypt as follow:
+HTTP/1.1 200 OK
+Content-Type: text/html
+//poison//
+Content-Length: 31
+//anything//
+
+- The dangerous part is the "anything"
+*Note remember to encrypt this into url, you can use this link to encode the script: https://cybersecurity.wtf/encoder/
+
 
 
 
