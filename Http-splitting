@@ -51,6 +51,10 @@ Content-Length: 31
 - The dangerous part is the "anything"
 *Note remember to encrypt this into url, you can use this link to encode the script: https://cybersecurity.wtf/encoder/
 
+4. My understanding
+- So as far as i understand, http response splitting is the abuse of the server caching system. The Target search up a link which have been cache poisoned 
+they will get redirect to a malicious page instead of their destination
+
 
 
 
