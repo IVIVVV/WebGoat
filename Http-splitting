@@ -52,10 +52,12 @@ Content-Length: 31
 *Note remember to encrypt this into url, you can use this link to encode the script: https://cybersecurity.wtf/encoder/
 
 4. My understanding
-- So as far as i understand, http response splitting is the abuse of the server caching system. The Target search up a link which have been cache poisoned 
-they will get redirect to a malicious page instead of their destination
+- So as far as i understand, caching is intended to speed up page loads by reducing latency, http response splitting is the abuse of the server caching system. The Target search up a link which have been cache poisoned 
+they will get redirect to a malicious page instead of their intended destination
 
-
+5. Credits
+https://portswigger.net/research/practical-web-cache-poisoning
+https://resources.infosecinstitute.com/topic/http-response-splitting-attack/
 
 
 
